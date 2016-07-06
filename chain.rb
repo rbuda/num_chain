@@ -10,12 +10,12 @@ def chain(num)
   array.count
 end
 
+
 def input(range)
   results = []
   range.each do |num|
     results << chain(num)
   end
-  # results.sort
   results.index(results.max) + 1
 end
 
@@ -33,8 +33,25 @@ def speed_input(range)
   results.index(results.max) + middle
 end
 
-p speed_input(1..1000000)
+# p speed_input(1..1000000)
 # 7s
 
 # p input(1..1000000)
 # 23s
+
+$array = []
+
+def recursive_chain(num)
+  if num == 1
+    return $array.count + 1
+  elsif num.odd?
+    num *= 3
+    num += 1
+  else num.even?
+    num /= 2
+  end
+  $array.push(num)
+  recursive_chain(num)
+end
+
+p recursive_chain(100)
