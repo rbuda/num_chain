@@ -32,11 +32,13 @@ def speed_input(range)
   results.index(results.max) + middle
 end
 
+# ***********************
 p speed_input(1..1000000)
 # 7s
 
 # p input(1..1000000)
 # 23s
+# ***********************
 
 # $array = []
 # def recursive_chain(num)
