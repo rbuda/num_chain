@@ -10,14 +10,12 @@ def chain(num)
   array.count
 end
 
-# p chain(1..10)
-
 def input(range)
   results = []
   range.each do |num|
     results << chain(num)
   end
-  # results.max
+  # results.sort
   results.index(results.max) + 1
 end
 
@@ -26,21 +24,17 @@ def speed_input(range)
   middle = range.max/2
   upper_range = middle..range.max
   upper_range.each do |num|
-    results << chain(num)
+    if num.odd?
+      results << chain(num)
+    else
+      results << 0
+    end
   end
   results.index(results.max) + middle
-
-  # max_length = range.last.to_s.length
-  # range.each do |num|
-  #   if num.to_s.length >= max_length - 1
-  #     results << chain(num)
-  #   end
-  # end
-  # results.index(results.max) + 1
 end
 
 p speed_input(1..1000000)
-# 12s
+# 7s
 
 # p input(1..1000000)
 # 23s
